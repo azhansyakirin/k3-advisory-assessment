@@ -11,7 +11,7 @@ const FieldError = ({ error }) => {
   return <p className="text-sm pt-1 text-red-500">{error}</p>;
 }
 
-const InputField = ({ name, label, type, value, onChange, placeholder, error }) => {
+const InputField = ({ name, label, type, value, onChange, placeholder, error, helpText }) => {
   return (
     <div className="w-full">
       <label htmlFor={name} className="block text-sm font-medium text-gray-700">
@@ -37,6 +37,7 @@ const InputField = ({ name, label, type, value, onChange, placeholder, error }) 
           placeholder={placeholder}
         />
       }
+      {helpText && <p className='text-xs text-neutral-400 pt-1' dangerouslySetInnerHTML={{ __html: helpText }} />}
       {error && <FieldError error={error} />}
     </div>
   );
@@ -133,6 +134,7 @@ const EnquiryPage = () => {
               onChange={handleChange}
               placeholder="yourmail@mail.com"
               error={fieldErrors?.email}
+              helpText={`Use <b>failed@mail.com</b> to simulate Salesforce error`}
             />
 
             <InputField
