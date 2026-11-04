@@ -1,19 +1,19 @@
 {
   "items": [
     {
-      "sys": {
-        "id": "service-audit-001",
-        "contentType": {
-          "sys": {
-            "id": "servicePage"
-          }
-        }
-      },
       "fields": {
         "title": "Financial Advisory",
         "slug": "financial-advisory",
         "summary": "Practical, independent guidance on planning, structuring and growing your wealth.",
         "seoDescription": "Independent financial advisory services from K3 Advisory Group."
+      }
+    },
+    {
+      "fields": {
+        "title": "Business Advisory",
+        "slug": "business-advisory",
+        "summary": "Practical, independent guidance on planning, structuring and growing your wealth.",
+        "seoDescription": "Independent business advisory services from K3 Advisory Group."
       }
     }
   ]
