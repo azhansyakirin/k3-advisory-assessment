@@ -156,27 +156,27 @@ const EnquiryPage = () => {
           </form>
         </section>
 
-        <section className="right font-mono col-span-5 md:col-span-3">
-          <div>
-            <h2>Form Data</h2>
+        <section className="right col-span-5 md:col-span-3">
+          <div className='pb-2'>
+            <h4>Form Data</h4>
             <pre className="bg-neutral-100 p-4 rounded-lg overflow-x-auto">
               {JSON.stringify(formData, null, 2)}
             </pre>
           </div>
-          <div>
-            <h2>Lead Id</h2>
+          <div className='pb-2'>
+            <h4>Lead Id</h4>
             <pre className="bg-neutral-100 p-4 rounded-lg overflow-x-auto">
               {JSON.stringify({ leadId }, null, 2)}
             </pre>
           </div>
-          <div>
-            <h2>Error Field</h2>
+          <div className='pb-2'>
+            <h4>Error Field</h4>
             <pre className="bg-neutral-100 p-4 rounded-lg overflow-x-auto">
               {JSON.stringify(fieldErrors, null, 2)}
             </pre>
           </div>
-          <div>
-            <h2>API Error</h2>
+          <div className='pb-2'>
+            <h4>API Error</h4>
             <pre className="bg-neutral-100 p-4 rounded-lg overflow-x-auto">
               {JSON.stringify(apiError, null, 2)}
             </pre>

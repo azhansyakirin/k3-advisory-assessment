@@ -33,8 +33,14 @@ h1 {
   font-size: var(--text-5xl);
   font-weight: var(--font-weight-semibold);
   letter-spacing: var(--tracking-tighter);
+  line-height: var(--text-5xl--line-height);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-tighter);
   line-height: var(--text-3xl--line-height);
-  padding-bottom: 1rem;
 }
 
 .text-accent {
