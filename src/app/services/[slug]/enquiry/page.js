@@ -102,7 +102,7 @@ const EnquiryPage = () => {
   }
 
   return (
-    <main className="min-h-screen p-24 flex flex-col gap-8">
+    <main className="min-h-screen p-8 md:p-24 flex flex-col gap-8">
 
       <Link href="/services" className="inline-flex gap-2 items-center py-2 font-semibold uppercase hover:underline">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
@@ -112,7 +112,7 @@ const EnquiryPage = () => {
       </Link>
 
       <div className="grid grid-cols-5 items-center gap-8">
-        <section className="left col-span-2 w-full">
+        <section className="left col-span-5 md:col-span-2 w-full">
           <h1>Create your enquiry</h1>
 
           <form onSubmit={handleSubmit} noValidate className="flex w-full flex-col gap-4">
@@ -156,7 +156,7 @@ const EnquiryPage = () => {
           </form>
         </section>
 
-        <section className="right font-mono col-span-3">
+        <section className="right font-mono col-span-5 md:col-span-3">
           <div>
             <h2>Form Data</h2>
             <pre className="bg-neutral-100 p-4 rounded-lg overflow-x-auto">

@@ -11,14 +11,14 @@ const ServicesPage = async () => {
   const services = await fetchServices();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-8 font-sans">
+    <main className="flex min-h-screen flex-col items-center justify-center gap-8 p-8 md:p-24font-sans">
       <h1 className="text-3xl font-semibold">Services</h1>
 
       <p>Welcome to the services page. Here you can find information about our services.</p>
       
-      <div className="flex flex-row flex-wrap items-center gap-4 max-w-[800px] justify-center">
+      <div className="flex flex-row flex-wrap items-center gap-4 w-full md:max-w-[800px] justify-center">
         {services.map((service, id) =>
-        (<div key={id} className="border border-[var(--border-color)] rounded-xl p-4 flex flex-col items-stretch max-w-[250px] aspect-[3/4] overflow-hidden">
+        (<div key={id} className="border border-[var(--border-color)] rounded-xl p-4 flex flex-col gap-4 items-stretch md:max-w-[250px] md:aspect-[4/5] overflow-hidden">
           <h2 className="text-xl font-semibold break-words pb-4">{service.title}</h2>
           <p className="flex-1 overflow-hidden line-clamp-5">{service.summary}</p>
           <Link href={`/services/${service.slug}`} className="inline-flex items-start gap-1 hover:opacity-80">
