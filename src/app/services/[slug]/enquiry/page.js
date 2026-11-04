@@ -48,6 +48,8 @@ const EnquiryPage = () => {
   const [fieldErrors, setFieldErrors] = useState(null);
   const [apiError, setApiError] = useState(null);
   const [leadId, setLeadId] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [shake, setShake] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,9 +66,12 @@ const EnquiryPage = () => {
     if (!result.ok) {
       setFieldErrors(result.errors);
       toast.error('Please make sure all fields are filled correctly');
+      setShake(true);
+      setTimeout(() => setShake(false), 500);
       return;
     }
 
+    setIsSubmitting(true);
     try {
       const response = await fetch('/api/enquiry', {
         method: 'POST',
@@ -98,6 +103,8 @@ const EnquiryPage = () => {
       console.error(err);
       setApiError(err);
       toast.error("An error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -149,9 +156,23 @@ const EnquiryPage = () => {
 
             <button
               type="submit"
-              className="rounded-lg border border-neutral-400 py-2 px-4 cursor-pointer hover:opacity-80 hover:bg-neutral-50"
+              disabled={isSubmitting}
+              className={`group relative flex w-full items-center justify-center gap-2 rounded-lg border border-neutral-400 py-2 px-4 cursor-pointer
+    transition-all duration-200 ease-out
+    hover:-translate-y-0.5 hover:shadow-md hover:bg-neutral-50
+    active:translate-y-0 active:scale-95 active:shadow-sm
+    disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-none
+    ${shake ? 'animate-[shake_0.4s_ease-in-out]' : ''}`}
             >
-              Submit
+              {isSubmitting && (
+                <svg className="size-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" className="opacity-25" />
+                  <path d="M22 12a10 10 0 0 1-10 10" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                </svg>
+              )}
+              <span className="transition-opacity duration-200">
+                {isSubmitting ? 'Submitting...' : 'Submit'}
+              </span>
             </button>
           </form>
         </section>
